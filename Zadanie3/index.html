@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">Список задач</h1>
+    <div class="todo">
+        <div class="filter_search">
+            <input type="text" id="search" placeholder="Поиск задач...">
+            <img src="Vector.png" id="searchBtn">
+            <button id="todayBtn">Сегодня</button>
+            <button id="weekBtn" >Текущая неделя</button>
+            <label for="statusFilter">Фильтр по статусу:</label>
+            <select id="statusFilter">
+                <option value="">Все</option>
+                <option value="completed">Выполнено</option>
+                <option value="not_completed">Не выполнено</option>
+            </select>
+            <button id="filterByDateBtn">Фильтровать по датам</button>
+            <label for="startDate">С:</label>
+            <input type="date" id="startDate">
+            <label for="endDate">По:</label>
+            <input type="date" id="endDate">
+            
+        </div>
+    <div id="taskList"></div>
+    </div>
+   
+
+<div id="Modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
+
+
+

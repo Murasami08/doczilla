@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <style>
+        body {
+           font-family: Arial, sans-serif;
+           background-color: #f4f4f4;
+           margin: 0;
+           padding: 20px;
+       }
+
+       h1 {
+           text-align: center;
+           color: #333;
+       }
+
+       h2 {
+           color: #555;
+       }
+
+       input {
+           width: 100%;
+           padding: 10px;
+           margin: 5px 0;
+           border: 1px solid #ccc;
+           border-radius: 5px;
+       }
+
+       button {
+           background-color: #28a745;
+           color: white;
+           padding: 10px;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           width: 100%;
+       }
+
+       button:hover {
+           background-color: #218838;
+       }
+
+       pre {
+           background-color: #fff;
+           border: 1px solid #ccc;
+           padding: 10px;
+           border-radius: 5px;
+           overflow-x: auto;
+       }
+
+       .container {
+           max-width: 600px;
+           margin: auto;
+           background-color: white;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+       }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Student Management</h1>
+
+    <h2>Add Student</h2>
+    <input type="text" id="firstName" placeholder="First Name" required>
+    <input type="text" id="lastName" placeholder="Last Name" required>
+    <input type="text" id="middleName" placeholder="Middle Name">
+    <input type="date" id="birthDate" required>
+    <input type="text" id="groupName" placeholder="Group Name" required>
+    <input type="text" id="uniqueNumber" placeholder="Unique Number" required>
+    <button onclick="addStudent()">Add Student</button>
+
+    <h2>Delete Student</h2>
+    <input type="text" id="deleteUniqueNumber" placeholder="Unique Number">
+    <button onclick="deleteStudent()">Delete Student</button>
+
+    <h2>Students List</h2>
+    <button onclick="getStudents()">Get Students</button>
+    <pre id="studentsList"></pre>
+</div>
+
+
+<script>
+    async function addStudent() {
+        const student = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            middleName: document.getElementById('middleName').value,
+            birthDate: document.getElementById('birthDate').value,
+            groupName: document.getElementById('groupName').value,
+            uniqueNumber: document.getElementById('uniqueNumber').value
+        };
+
+        const response = await fetch('/students', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(student)
+        });
+        const result = await response.text();
+        alert(result);
+    }
+
+    async function deleteStudent() {
+        const uniqueNumber = document.getElementById('deleteUniqueNumber').value;
+        const response = await fetch(/students/${uniqueNumber}, { method: 'DELETE' });
+        const result = await response.text();
+        alert(result);
+    }
+
+    async function getStudents() {
+        const response = await fetch('/students');
+        const students = await response.json();
+        document.getElementById('studentsList').innerText = JSON.stringify(students, null, 2);
+    }
+</script>
+</body>
+</html>

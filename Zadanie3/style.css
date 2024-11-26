@@ -1,0 +1,97 @@
+.todo{
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+.filter_search{
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  margin-left: 25px;
+  border: 1px solid black;
+  width: 250px;
+  background-color: blue;
+}
+.filter_search img{
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  left: 208px;
+  top: 122px;
+  cursor: pointer;
+}
+.filter_search input,select,button{
+  width: 200px;
+  margin: 15px 0 0 15px;
+  background-color: white;
+  height: 30px;
+  border-radius: 10px;
+  color: blue;
+}
+.filter_search input::placeholder{
+  color: blue;
+}
+.filter_search input:focus{
+  box-shadow: 1px 1px 10px 1px black;
+  border-color: white;
+}
+.filter_search button:hover{
+  background-color: red;
+  transition: 0.4s linear;
+  color: white;
+  cursor: pointer;
+}
+
+.filter_search label{
+  margin: 10px 0 0 20px;
+  color: white;
+}
+#taskList{
+  border: 1px solid black;
+  width: 70%;
+  background-color: blue;
+}
+#taskList p{
+  border: 1px solid black;
+  margin: 10px 0;
+  height: 50px;
+  padding: 15px 0 0 15px;
+  background-color: white;
+  
+}
+.title{
+  margin: 15px 0 50px 25px;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
